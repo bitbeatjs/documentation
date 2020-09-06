@@ -92,11 +92,11 @@ Of course the core package of bitbeat is a bit plain, which is intended but may 
 It's pretty easy to add one of these modules to the core or even create your own and add it. For this you will need to use the [register/registerBulk](#register-registerbulk).
 Check out some official modules available (more modules will follow):
 
--   [@bitbeat/web]() (web server module based on [fastify](https://www.fastify.io/))
--   [@bitbeat/websocket]() (web socket server module based on [ws](https://github.com/websockets/ws))
--   [@bitbeat/python]() (python module)
--   [@bitbeat/evan-network]() (blockchain module based on the [evan.network](https://evan.network/))
--   [@bitbeat/cluster]() (clustering module)
+- [@bitbeat/web](https://github.com/bitbeatjs/web) (v<span id="version-web"></span>) (web server module based on [fastify](https://www.fastify.io/))
+- [@bitbeat/websocket](https://github.com/bitbeatjs/websocket) (v<span id="version-websocket"></span>) (web socket server module based on [ws](https://github.com/websockets/ws))
+- [@bitbeat/python](https://github.com/bitbeatjs/python) (python module)
+- [@bitbeat/evan-network](https://github.com/bitbeatjs/evan-network) (blockchain module based on the [evan.network](https://evan.network/))
+- [@bitbeat/cluster](https://github.com/bitbeatjs/cluster) (clustering module)
 
 Community modules:
 - Be the first to provide one!

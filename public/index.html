@@ -16,7 +16,11 @@
       maxLevel: 5,
       name: '',
       repo: '',
-      version: '0.0.10',
+      versions: {
+        core: '0.0.1',
+        web: '0.0.1',
+        websocket: '0.0.1',
+      },
       copyCode: {
         buttonText : 'Copy to clipboard',
         errorText  : 'Error',
@@ -33,9 +37,29 @@
       plugins: [
         (hook, vm) => {
           hook.init(async () => {
-            const { data } = await axios.get('/api/v1/version');
-            this.version = data.version;
-            document.querySelector('#version-core').innerText = this.version;
+            const { data } = await axios.post('/api/v1/version', {
+              name: '@bitbeat/core'
+            });
+            window.$docsify.versions.core = data.version;
+            document.querySelector('#version-core').innerText = window.$docsify.versions.core;
+          });
+        },
+        (hook, vm) => {
+          hook.init(async () => {
+            const { data } = await axios.post('/api/v1/version', {
+              name: '@bitbeat/web'
+            });
+            window.$docsify.versions.web = data.version;
+            document.querySelector('#version-web').innerText = window.$docsify.versions.web;
+          });
+        },
+        (hook, vm) => {
+          hook.init(async () => {
+            const { data } = await axios.post('/api/v1/version', {
+              name: '@bitbeat/websocket'
+            });
+            window.$docsify.versions.websocket = data.version;
+            document.querySelector('#version-websocket').innerText = window.$docsify.versions.websocket;
           });
         },
       ],
