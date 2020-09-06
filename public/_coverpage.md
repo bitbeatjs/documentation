@@ -1,6 +1,6 @@
 ![logo](_media/icon.svg)
 
-# bitbeat <small id="version-core">0.0.10</small>
+# bitbeat <small id="version-core">0.0.1</small>
 
 -   <b>Simple</b> <small>to use, extend and develop</small>
 -   <b>Modular</b> <small>by adding only the modules you need</small>
