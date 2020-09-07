@@ -50,7 +50,7 @@
               name: '@bitbeat/web'
             });
             window.$docsify.versions.web = data.version;
-            document.querySelector('#version-web').innerText = window.$docsify.versions.web;
+            document.querySelector('#version-web').innerText = `v${window.$docsify.versions.web}`;
           });
         },
         (hook, vm) => {
@@ -59,7 +59,7 @@
               name: '@bitbeat/websocket'
             });
             window.$docsify.versions.websocket = data.version;
-            document.querySelector('#version-websocket').innerText = window.$docsify.versions.websocket;
+            document.querySelector('#version-websocket').innerText = `v${window.$docsify.versions.websocket}`;
           });
         },
       ],
