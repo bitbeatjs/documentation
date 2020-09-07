@@ -13,15 +13,15 @@ export default async () => {
   const webConfig = new WebServerConfig();
   const webServer = new WebServer();
 
-  (webConfig.default.options as any).fastifyHelmet = {
+  (webConfig.default as any).fastifyHelmet = {
       contentSecurityPolicy: false,
   };
 
-  (webConfig.default.options as any).static = {
+  (webConfig.default as any).static = {
       root: join(__dirname, 'public'),
   };
   (webServer as any).postRegister = (runtime: any, config: WebServerConfig | undefined): void => {
-      runtime.register(fastifyStatic, config?.value.options.static);
+      runtime.register(fastifyStatic, config?.value.static);
       webServer.debug(`Registered fastify static.`);
   };
 
