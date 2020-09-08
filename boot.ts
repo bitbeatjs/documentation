@@ -16,7 +16,6 @@ export default async () => {
   (webConfig.default as any).fastifyHelmet = {
       contentSecurityPolicy: false,
   };
-  webConfig.default.host = '0.0.0.0';
   webConfig.default.port = 3000;
   (webConfig.default as any).static = {
       root: join(__dirname, 'public'),
@@ -27,16 +26,10 @@ export default async () => {
   };
 
   await registerBulk(
-    new Set([{
-        instance: webConfig,
-      },
-      {
-        instance: webServer,
-      },
-      {
-        instance: Documentation,
-        createInstance: true,
-      }
+    new Set([
+        webConfig,
+        webServer,
+        Documentation
     ])
   );
 };
