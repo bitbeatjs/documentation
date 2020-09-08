@@ -563,7 +563,7 @@ export default class Test extends Task {
 
 ----
 
-#### registerUpdate
+##### registerUpdate
 
 ```typescript
 import { getInstance, registerUpdate, Task, boot } from '@bitbeat/core';
@@ -1166,7 +1166,7 @@ export default class TestTask extends Task {
 #### Tasks
 A task is like an action that runs by the cron schedule your are defining. So you could crawl stuff incrementally, restart servers after some hours, ping services or whatever you like to do. 
 
-##### Usage
+##### Definition / Usage
 
 ```typescript
 import { Task, getInstance } from '@bitbeat/core';

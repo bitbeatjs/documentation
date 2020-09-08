@@ -8,5 +8,5 @@
 -   <b>Lightweight</b> <small>by using small modules [(~347KB and ~113KB gzipped)](https://bundlephobia.com/result?p=@bitbeat/core@latest)</small>
 -   <b>Cross platform</b> <small>by being a nodejs framework and tested on Unix and Windows</small>
 
-[GitHub](https://github.com/QuadroKnoX/bitbeat)
+[GitHub](https://github.com/bitbeatjs/core)
 [Get Started](#bitbeat)
