@@ -19,7 +19,7 @@ export default async () => {
   webConfig.default.host = '0.0.0.0';
   webConfig.default.port = 3000;
   (webConfig.default as any).static = {
-      root: join(__dirname, 'public'),
+      root: join(__dirname, 'docs'),
   };
   (webServer as any).postRegister = (runtime: any, config: WebServerConfig | undefined): void => {
       runtime.register(fastifyStatic, config?.value.static);
