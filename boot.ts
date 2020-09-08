@@ -16,7 +16,7 @@ export default async () => {
   (webConfig.default as any).fastifyHelmet = {
       contentSecurityPolicy: false,
   };
-
+  webConfig.default.host = '0.0.0.0';
   (webConfig.default as any).static = {
       root: join(__dirname, 'public'),
   };

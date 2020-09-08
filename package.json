@@ -20,8 +20,8 @@
   },
   "homepage": "https://github.com/bitbeatjs/documentation#readme",
   "dependencies": {
-    "@bitbeat/core": "0.0.12",
-    "@bitbeat/web": "0.0.12",
+    "@bitbeat/core": "^0.0.12",
+    "@bitbeat/web": "^0.0.12",
     "axios": "^0.20.0",
     "fastify-static": "^3.2.0"
   },
