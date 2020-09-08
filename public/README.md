@@ -115,14 +115,8 @@ import {
 export default async () => {
     await registerBulk(
         new Set([
-            {
-                instance: WebServerConfig,
-                createInstance: true,
-            },
-            {
-                instance: WebServer,
-                createInstance: true,
-            },
+            WebServerConfig,
+            WebServer,
         ])
     );
 };
@@ -519,18 +513,13 @@ export default class Test extends Server {
 
         // or let the framework generate an instance.
         // note that you can't any custom code for the instance then.
-        await register(WebAction, true);
+        await register(WebAction);
 
         // or register both as a bulk, to prevent multiple reloads.
         await registerBulk(
             new Set([
-                {
-                    instance: basicAction,
-                },
-                {
-                    instance: WebAction,
-                    createInstance: true,
-                },
+                basicAction,
+                WebAction,
             ])
         );
     }
@@ -1246,7 +1235,7 @@ export default class TestTask extends Task {
         let server = getInstance(TestServer);
         if (!server) {
             server = new TestServer();
-            register(server);
+            await register(server);
         }
     }
 }
@@ -1280,7 +1269,7 @@ export default class TestTask extends Task {
         let server = getInstance(TestServer);
         if (!server) {
             server = new TestServer();
-            register(server);
+            await register(server);
         }
     }
 }
