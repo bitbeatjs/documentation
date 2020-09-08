@@ -1,5 +1,8 @@
 # BITBEAT
 ## Introduction
+
+!> This documentation runs on <b>@bitbeat/core</b> and <b>@bitbeat/web</b> itself.
+
 ### Glossary
 1. [Getting started](#getting-started)
 2. [Development](#development)
