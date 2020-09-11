@@ -48,6 +48,8 @@ You can easily use the framework for this purpose by using bitbeat for each dock
 
 ### Generate
 #### Using the generator
+<i>Current version: <span id="version-generator">not released</span></i><br>
+<br>
 The easiest way to generate a bitbeat project is by using the yeoman generator.<br>
 To do so, install yeoman with `npm i -g yo` or `yarn global add yo` and install the generator by using `npm i -g generator-bitbeat` or `yarn global add generator-bitbeat`. Then run `yo bitbeat`.<br>
 This will guide you through the process of generating a project structure and install the packages for you.

@@ -20,6 +20,7 @@
         core: '0.0.1',
         web: '0.0.1',
         websocket: '0.0.1',
+        generator: '0.0.1'
       },
       copyCode: {
         buttonText : 'Copy to clipboard',
@@ -42,6 +43,15 @@
             });
             window.$docsify.versions.core = data.version;
             document.querySelector('#version-core').innerText = window.$docsify.versions.core;
+          });
+        },
+        (hook, vm) => {
+          hook.init(async () => {
+            const { data } = await axios.post('/api/v1/version', {
+              name: 'generator-bitbeat'
+            });
+            window.$docsify.versions.generator = data.version;
+            document.querySelector('#version-generator').innerText = `v${window.$docsify.versions.generator}`;
           });
         },
         (hook, vm) => {
