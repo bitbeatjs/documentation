@@ -4,7 +4,7 @@
   "description": "The documentation repo for @bitbeat.",
   "main": "index.js",
   "scripts": {
-    "start": "node ./node_modules/@bitbeat/core/bin/index.js",
+    "start": "npx @bitbeat/core start",
     "start:docker": "docker build --tag bitbeat_documentation:latest --rm . && docker run --rm --name bitbeat_documentation -p 3000:3000 -it bitbeat_documentation:latest",
     "build": "npx tsc",
     "watch": "npx tsc --watch"
