@@ -1,4 +1,7 @@
 # BITBEAT
+<img src="https://badgen.net/npm/v/@bitbeat/core" /> <img src="https://badgen.net/npm/license/@bitbeat/core" /> <img src="https://badgen.net/npm/types/@bitbeat/core" /><br>
+<img src="https://badgen.net/bundlephobia/min/@bitbeat/core" /> <img src="https://badgen.net/bundlephobia/minzip/@bitbeat/core" /> <img src="https://badgen.net/bundlephobia/dependency-count/@bitbeat/core" />
+
 ## Introduction
 
 !> This documentation runs on <b>@bitbeat/core</b> and <b>@bitbeat/web</b> itself.
