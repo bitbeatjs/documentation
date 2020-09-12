@@ -1,6 +1,6 @@
 # BITBEAT
-<img src="https://badgen.net/npm/v/@bitbeat/core" /> <img src="https://badgen.net/npm/license/@bitbeat/core" /> <img src="https://badgen.net/npm/types/@bitbeat/core" /><br>
-<img src="https://badgen.net/bundlephobia/min/@bitbeat/core" /> <img src="https://badgen.net/bundlephobia/minzip/@bitbeat/core" /> <img src="https://badgen.net/bundlephobia/dependency-count/@bitbeat/core" />
+<img src="https://badgen.net/npm/v/@bitbeat/core" /> <img src="https://badgen.net/npm/license/@bitbeat/core" /> <img src="https://badgen.net/npm/types/@bitbeat/core" /> <img src="https://badgen.net/bundlephobia/dependency-count/@bitbeat/core" /><br>
+<img src="https://badgen.net/bundlephobia/min/@bitbeat/core" /> <img src="https://badgen.net/bundlephobia/minzip/@bitbeat/core" /> <img src="https://badgen.net/packagephobia/publish/@bitbeat/core" /> <img src="https://badgen.net/packagephobia/install/@bitbeat/core" />
 
 ## Introduction
 
