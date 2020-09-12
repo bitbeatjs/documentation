@@ -23,6 +23,7 @@
       repo: '',
       versions: {
         core: '0.0.1',
+        redis: '0.0.1',
         web: '0.0.1',
         websocket: '0.0.1',
         generator: '0.0.1'
@@ -48,6 +49,15 @@
             });
             window.$docsify.versions.core = data.version;
             document.querySelector('#version-core').innerText = window.$docsify.versions.core;
+          });
+        },
+        (hook, vm) => {
+          hook.init(async () => {
+            const { data } = await axios.post('/api/v1/version', {
+              name: '@bitbeat/redis'
+            });
+            window.$docsify.versions.redis = data.version;
+            document.querySelector('#version-redis').innerText = `v${window.$docsify.versions.redis}`;
           });
         },
         (hook, vm) => {
