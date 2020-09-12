@@ -102,6 +102,7 @@ Check out some official modules available (more modules will follow):
 
 - [@bitbeat/web](https://github.com/bitbeatjs/web) (<span id="version-web">not released</span>) (web server module based on [fastify](https://www.fastify.io/))
 - [@bitbeat/websocket](https://github.com/bitbeatjs/websocket) (<span id="version-websocket">not released</span>) (web socket server module based on [ws](https://github.com/websockets/ws))
+- [@bitbeat/redis](https://github.com/bitbeatjs/redis) (<span id="version-redis">not released</span>) (redis connector module based on [ioredis](https://github.com/luin/ioredis))
 - [@bitbeat/python](https://github.com/bitbeatjs/python) (<span id="version-python">not released</span>) (python module)
 - [@bitbeat/evan-network](https://github.com/bitbeatjs/evan-network) (<span id="version-evan-network">not released</span>) (blockchain module based on the [evan.network](https://evan.network/))
 - [@bitbeat/cluster](https://github.com/bitbeatjs/cluster) (<span id="version-cluster">not released</span>) (clustering module)
