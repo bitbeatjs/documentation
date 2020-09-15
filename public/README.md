@@ -1292,6 +1292,11 @@ That means if you want to skip the compilation step, it's fine. Just make sure, 
 ----
 
 ## Deployment
+### Disable default keep alive
+Now sometimes you may want to disable the default keep alive of the cli (sometimes you can't because the packages keep the core running), but to do so, you can set the env var `KEEP_ALIVE` to false or 0.<br>
+<br>
+`KEEP_ALIVE=false` or `KEEP_ALIVE=0`
+
 ### Docker
 If you want to deploy it in a docker, there is a docker-compose.yml and a Dockerfile in the repository, which gives you an example of how to dockerize it.
 
