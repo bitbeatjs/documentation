@@ -5,6 +5,10 @@
 
 !> This documentation runs on <b>@bitbeat/core</b> and <b>@bitbeat/web</b> itself.
 
+### Now why is it called "bitbeat" and how did you get to that name?
+> Well I thought the name bitbeat was quite short and easy to remember but in general for me it's based on both words "bit" and "beat".<br>
+I thought of the word "beat" as like a rhythm or heartbeat. Rhythm like the rhythm of a symphony of bits, which will work in harmony together and make the whole program run like a charm. Heartbeat because it should be like a growing organism, by making it modular and allow attaching your own modules however you want them and publish them to be reused by others. The word "bit" is of course one of the most basic units of a program but also it connects the word "beat" with the IT part.
+
 ### Glossary
 1. [Getting started](#getting-started)
 2. [Development](#development)
