@@ -14,16 +14,16 @@
 
 1. [Getting started](#getting-started)
 2. [Development](#development)
-   1. [Configuring the basics](#configuring-the-basics)
-   2. [Add existing module / extend core](#add-existing-module-extend-core)
-   3. [Basic development](#basic-development)
-   4. [Environment variables](#environment-variables)
-   5. [Events](#events)
-   6. [Instance specific variables](#instance-specific-variables)
-   7. [Functions](#functions)
-   8. [Default project structure](#default-project-structure)
-   9. [Startup cycle](#startup-cycle)
-   10. [Structures](#structures)
+    1. [Configuring the basics](#configuring-the-basics)
+    2. [Add existing module / extend core](#add-existing-module-extend-core)
+    3. [Basic development](#basic-development)
+    4. [Environment variables](#environment-variables)
+    5. [Events](#events)
+    6. [Instance specific variables](#instance-specific-variables)
+    7. [Functions](#functions)
+    8. [Default project structure](#default-project-structure)
+    9. [Startup cycle](#startup-cycle)
+    10. [Structures](#structures)
 3. [Do's and Don'ts](#dos-and-donts)
 4. [FAQ](#faq)
 5. [Deployment](#deployment)
@@ -59,7 +59,7 @@ You can easily use the framework for this purpose by using bitbeat for each dock
 
 ### Requirements
 
-- Node >= 10
+-   Node >= 10
 
 ### Generate
 
@@ -88,22 +88,22 @@ If you need more than just the core, take a look at [adding packages to it](#add
 It is possible to change or extend the directories, which are being watched and loaded. To do so, you need to create file like `bitbeat.local.config.js`.
 
 ```typescript
-import { BaseStructure } from "@bitbeat/core";
+import { BaseStructure } from '@bitbeat/core';
 
 export default {
-  extends: ["bitbeat.config.js"], // this is optional, makes it easier to create basic files and extend them for different environments
-  fileWatcherDelay: 300, // this is optional, use a bigger delay if your filesystem is slow, to prevent multiple reloads while e.g. copying files to the directories. Default is 100
-  directories: {
-    hello: {
-      type: BaseStructure,
-      path: "./hello",
-      dependencies: new Set(),
-      middlewares: new Set(),
-      start: true,
-      repeatable: false,
-      run: false,
+    extends: ['bitbeat.config.js'], // this is optional, makes it easier to create basic files and extend them for different environments
+    fileWatcherDelay: 300, // this is optional, use a bigger delay if your filesystem is slow, to prevent multiple reloads while e.g. copying files to the directories. Default is 100
+    directories: {
+        hello: {
+            type: BaseStructure,
+            path: './hello',
+            dependencies: new Set(),
+            middlewares: new Set(),
+            start: true,
+            repeatable: false,
+            run: false,
+        },
     },
-  },
 };
 ```
 
@@ -119,25 +119,25 @@ Of course the core package of bitbeat is a bit plain, which is intended but may 
 It's pretty easy to add one of these modules to the core or even create your own and add it. For this you will need to use the [register/registerBulk](#register-registerbulk).
 Check out some official modules available (more modules will follow):
 
-- [@bitbeat/web](https://github.com/bitbeatjs/web) (<span id="version-web">not released</span>) (web server module based on [fastify](https://www.fastify.io/))
-- [@bitbeat/websocket](https://github.com/bitbeatjs/websocket) (<span id="version-websocket">not released</span>) (web socket server module based on [ws](https://github.com/websockets/ws))
-- [@bitbeat/redis](https://github.com/bitbeatjs/redis) (<span id="version-redis">not released</span>) (redis connector module based on [ioredis](https://github.com/luin/ioredis))
-- [@bitbeat/python](https://github.com/bitbeatjs/python) (<span id="version-python">not released</span>) (python module)
-- [@bitbeat/evan-network](https://github.com/bitbeatjs/evan-network) (<span id="version-evan-network">not released</span>) (blockchain module based on the [evan.network](https://evan.network/))
-- [@bitbeat/cluster](https://github.com/bitbeatjs/cluster) (<span id="version-cluster">not released</span>) (clustering module)
+-   [@bitbeat/web](https://github.com/bitbeatjs/web) (<span id="version-web">not released</span>) (web server module based on [fastify](https://www.fastify.io/))
+-   [@bitbeat/websocket](https://github.com/bitbeatjs/websocket) (<span id="version-websocket">not released</span>) (web socket server module based on [ws](https://github.com/websockets/ws))
+-   [@bitbeat/redis](https://github.com/bitbeatjs/redis) (<span id="version-redis">not released</span>) (redis connector module based on [ioredis](https://github.com/luin/ioredis))
+-   [@bitbeat/python](https://github.com/bitbeatjs/python) (<span id="version-python">not released</span>) (python module)
+-   [@bitbeat/evan-network](https://github.com/bitbeatjs/evan-network) (<span id="version-evan-network">not released</span>) (blockchain module based on the [evan.network](https://evan.network/))
+-   [@bitbeat/cluster](https://github.com/bitbeatjs/cluster) (<span id="version-cluster">not released</span>) (clustering module)
 
 Community modules:
 
-- Be the first to provide one!
+-   Be the first to provide one!
 
 Now initially the bitbeat is searching for a `boot.js`, which will be run before the whole core is getting initialized. To add a web server package to the core, you need to do something like this:
 
 ```typescript
-import { registerBulk, getInstance } from "@bitbeat/core";
-import { WebServer, WebServerConfig } from "@bitbeat/web";
+import { registerBulk, getInstance } from '@bitbeat/core';
+import { WebServer, WebServerConfig } from '@bitbeat/web';
 
 export default async () => {
-  await registerBulk(new Set([WebServerConfig, WebServer]));
+    await registerBulk(new Set([WebServerConfig, WebServer]));
 };
 ```
 
@@ -310,18 +310,18 @@ This function will be loaded once, when the instance gets loaded from the file s
 The opposite of this function is the [destroy](#destroy) function.
 
 ```typescript
-import { Server } from "@bitbeat/core";
+import { Server } from '@bitbeat/core';
 
 export default class Test extends Server {
-  constructor() {
-    super();
-  }
+    constructor() {
+        super();
+    }
 
-  async configure() {
-    console.log(
-      "Hey I will run only if the physical file or registered instance has changed."
-    );
-  }
+    async configure() {
+        console.log(
+            'Hey I will run only if the physical file or registered instance has changed.'
+        );
+    }
 }
 ```
 
@@ -334,18 +334,18 @@ This will also run after each instance type loading, which means e.g. you can ac
 The opposite of this function is the [close](#close) function.
 
 ```typescript
-import { Server } from "@bitbeat/core";
+import { Server } from '@bitbeat/core';
 
 export default class Test extends Server {
-  constructor() {
-    super();
-  }
+    constructor() {
+        super();
+    }
 
-  async provide() {
-    console.log(
-      "Hey I will run always if the physical file or registered instance type has changed."
-    );
-  }
+    async provide() {
+        console.log(
+            'Hey I will run always if the physical file or registered instance type has changed.'
+        );
+    }
 }
 ```
 
@@ -357,18 +357,18 @@ The initialize function is similar to the [provide](#provide) function, but runs
 The opposite of this function is the [close](#close) function.
 
 ```typescript
-import { Server } from "@bitbeat/core";
+import { Server } from '@bitbeat/core';
 
 export default class Test extends Server {
-  constructor() {
-    super();
-  }
+    constructor() {
+        super();
+    }
 
-  async initialize() {
-    console.log(
-      "Hey I will run always if the physical file or registered instance type has changed."
-    );
-  }
+    async initialize() {
+        console.log(
+            'Hey I will run always if the physical file or registered instance type has changed.'
+        );
+    }
 }
 ```
 
@@ -380,18 +380,18 @@ This function will run each time bitbeat reboots. It's intended to close open co
 The opposite of this function is the [provide](#provide) or [initialize](#initialize) function.
 
 ```typescript
-import { Server } from "@bitbeat/core";
+import { Server } from '@bitbeat/core';
 
 export default class Test extends Server {
-  constructor() {
-    super();
-  }
+    constructor() {
+        super();
+    }
 
-  async close() {
-    console.log(
-      "Hey I will run always if the physical file or registered instance type has changed."
-    );
-  }
+    async close() {
+        console.log(
+            'Hey I will run always if the physical file or registered instance type has changed.'
+        );
+    }
 }
 ```
 
@@ -403,18 +403,18 @@ This function will run once the instance gets completely destroyed. It's intende
 The opposite of this function is the [configure](#configure) function.
 
 ```typescript
-import { Server } from "@bitbeat/core";
+import { Server } from '@bitbeat/core';
 
 export default class Test extends Server {
-  constructor() {
-    super();
-  }
+    constructor() {
+        super();
+    }
 
-  async destroy() {
-    console.log(
-      "Hey I will run only if the physical file or registered instance has changed."
-    );
-  }
+    async destroy() {
+        console.log(
+            'Hey I will run only if the physical file or registered instance has changed.'
+        );
+    }
 }
 ```
 
@@ -426,17 +426,17 @@ This function is available for the following types: [Actions](#actions) and [Tas
 It will run each time the task runs or you are triggering an action.
 
 ```typescript
-import { Task } from "@bitbeat/core";
+import { Task } from '@bitbeat/core';
 
 export default class Test extends Task {
-  constructor() {
-    super();
-    this.schedule = "* * * * * *";
-  }
+    constructor() {
+        super();
+        this.schedule = '* * * * * *';
+    }
 
-  async run() {
-    console.log("This log will be shown each second.");
-  }
+    async run() {
+        console.log('This log will be shown each second.');
+    }
 }
 ```
 
@@ -448,16 +448,16 @@ This function is available for the following types: [Connectors](#connectors), [
 It will define what to do, when the server starts.
 
 ```typescript
-import { Server } from "@bitbeat/core";
+import { Server } from '@bitbeat/core';
 
 export default class Test extends Server {
-  constructor() {
-    super();
-  }
+    constructor() {
+        super();
+    }
 
-  async start() {
-    console.log("Started test server.");
-  }
+    async start() {
+        console.log('Started test server.');
+    }
 }
 ```
 
@@ -469,16 +469,16 @@ This function is available for the following types: [Connectors](#connectors), [
 It will define what to do, when the server stops.
 
 ```typescript
-import { Server } from "@bitbeat/core";
+import { Server } from '@bitbeat/core';
 
 export default class Test extends Server {
-  constructor() {
-    super();
-  }
+    constructor() {
+        super();
+    }
 
-  async stop() {
-    console.log("Stopped test server.");
-  }
+    async stop() {
+        console.log('Stopped test server.');
+    }
 }
 ```
 
@@ -494,49 +494,49 @@ Optionally you can put in the name and/or version, to set it to a fixed one, e.g
 !> This is the common way to fetch a created instance.
 
 ```typescript
-import { getInstance, Server } from "@bitbeat/core";
-import ServerConfig from "../config/serverConfig";
+import { getInstance, Server } from '@bitbeat/core';
+import ServerConfig from '../config/serverConfig';
 
 export default class Test extends Server {
-  async start() {
-    const config = getInstance(ServerConfig);
-  }
+    async start() {
+        const config = getInstance(ServerConfig);
+    }
 }
 ```
 
 Now there is another way to use it. For example if you don't want to import the class itself, you can use a string for that.
 
 ```typescript
-import { getInstance, Server, Configuration } from "@bitbeat/core";
+import { getInstance, Server, Configuration } from '@bitbeat/core';
 
 export default class Test extends Server {
-  async start() {
-    const config = getInstance(Configuration, "ServerConfig");
-  }
+    async start() {
+        const config = getInstance(Configuration, 'ServerConfig');
+    }
 }
 ```
 
 Here is the example to get a fixed version:
 
 ```typescript
-import { getInstance, Server, Configuration } from "@bitbeat/core";
+import { getInstance, Server, Configuration } from '@bitbeat/core';
 
 export default class Test extends Server {
-  async start() {
-    const config = getInstance(ServerConfig, 1);
-  }
+    async start() {
+        const config = getInstance(ServerConfig, 1);
+    }
 }
 ```
 
 or
 
 ```typescript
-import { getInstance, Server, Configuration } from "@bitbeat/core";
+import { getInstance, Server, Configuration } from '@bitbeat/core';
 
 export default class Test extends Server {
-  async start() {
-    const config = getInstance(Configuration, "ServerConfig", 1);
-  }
+    async start() {
+        const config = getInstance(Configuration, 'ServerConfig', 1);
+    }
 }
 ```
 
@@ -547,12 +547,12 @@ export default class Test extends Server {
 If you don't want to import the class or the root class itself in the file, you can use the `getInstanceByName` function. It works similar to the `getInstance` function, but needs a name of an instance instead of the class (and the name).<br>
 
 ```typescript
-import { getInstanceByName, Server } from "@bitbeat/core";
+import { getInstanceByName, Server } from '@bitbeat/core';
 
 export default class Test extends Server {
-  async start() {
-    const config = getInstanceByName("ServerConfig");
-  }
+    async start() {
+        const config = getInstanceByName('ServerConfig');
+    }
 }
 ```
 
@@ -563,13 +563,13 @@ export default class Test extends Server {
 Sometimes you need to retrieve all instances of a type, e.g. for a server and its special actions. This will return a Set of instances.
 
 ```typescript
-import { getInstancesOfType, Server } from "@bitbeat/core";
-import { WebAction } from "bitbeat-web";
+import { getInstancesOfType, Server } from '@bitbeat/core';
+import { WebAction } from 'bitbeat-web';
 
 export default class Test extends Server {
-  async start() {
-    const actions = getInstancesOfType(WebAction);
-  }
+    async start() {
+        const actions = getInstancesOfType(WebAction);
+    }
 }
 ```
 
@@ -581,22 +581,22 @@ Now there are cases, where you don't want to create a physical file for an insta
 The `registerBulk` function takes a Set of instances as params, not an array to ensure a pre-unification.
 
 ```typescript
-import { register, registerBulk, Server } from "@bitbeat/core";
-import { WebAction } from "@bitbeat/web";
+import { register, registerBulk, Server } from '@bitbeat/core';
+import { WebAction } from '@bitbeat/web';
 
 export default class Test extends Server {
-  async start() {
-    // generate an instance by your code.
-    const basicAction = new WebAction();
-    await register(basicAction);
+    async start() {
+        // generate an instance by your code.
+        const basicAction = new WebAction();
+        await register(basicAction);
 
-    // or let the framework generate an instance.
-    // note that you can't any custom code for the instance then.
-    await register(WebAction);
+        // or let the framework generate an instance.
+        // note that you can't any custom code for the instance then.
+        await register(WebAction);
 
-    // or register both as a bulk, to prevent multiple reloads.
-    await registerBulk(new Set([basicAction, WebAction]));
-  }
+        // or register both as a bulk, to prevent multiple reloads.
+        await registerBulk(new Set([basicAction, WebAction]));
+    }
 }
 ```
 
@@ -611,14 +611,14 @@ This principal will be also used in the boot.ts for each project. There you can 
 Sometimes you need to unregister registered instances again. To do so, use either the `unregister` function, to only remove a single instance or `unregisterBulk`, to remove multiple.<br>
 
 ```typescript
-import { unregister, Task } from "@bitbeat/core";
-import MyConfiguration from "../config/myConfig";
+import { unregister, Task } from '@bitbeat/core';
+import MyConfiguration from '../config/myConfig';
 
 export default class Test extends Task {
-  async configure() {
-    const myConfiguration = getInstance(MyConfiguration);
-    await unregister(myConfiguration);
-  }
+    async configure() {
+        const myConfiguration = getInstance(MyConfiguration);
+        await unregister(myConfiguration);
+    }
 }
 ```
 
@@ -629,26 +629,26 @@ export default class Test extends Task {
 ##### registerUpdate
 
 ```typescript
-import { getInstance, registerUpdate, Task, boot } from "@bitbeat/core";
-import MyServer from "../servers/myServer";
-import MyConfiguration from "../config/myConfig";
+import { getInstance, registerUpdate, Task, boot } from '@bitbeat/core';
+import MyServer from '../servers/myServer';
+import MyConfiguration from '../config/myConfig';
 
 export default class Test extends Task {
-  async configure() {
-    const myServer = getInstance(MyServer);
-    const myNewServer = myServer;
+    async configure() {
+        const myServer = getInstance(MyServer);
+        const myNewServer = myServer;
 
-    if (!myServer || !myNewServer) {
-      throw new Error("Could not find server.");
+        if (!myServer || !myNewServer) {
+            throw new Error('Could not find server.');
+        }
+
+        myNewServer.start = async () => {
+            const testConfig = getInstance(MyConfiguration);
+            console.log(testConfig?.value.name);
+            console.log('Started.');
+        };
+        await registerUpdate(myServer, myNewServer);
     }
-
-    myNewServer.start = async () => {
-      const testConfig = getInstance(MyConfiguration);
-      console.log(testConfig?.value.name);
-      console.log("Started.");
-    };
-    await registerUpdate(myServer, myNewServer);
-  }
 }
 ```
 
@@ -661,13 +661,13 @@ export default class Test extends Task {
 In some edge cases, you may need to get all instances which are existing. For those cases, there is the `getAllInstances` function, which will return a Set of instances.
 
 ```typescript
-import { getAllInstances, Server } from "@bitbeat/core";
+import { getAllInstances, Server } from '@bitbeat/core';
 
 export default class Test extends Server {
-  async start() {
-    // get all instances, for whatever purpose
-    const instances = getAllInstances();
-  }
+    async start() {
+        // get all instances, for whatever purpose
+        const instances = getAllInstances();
+    }
 }
 ```
 
@@ -679,23 +679,23 @@ The easiest way to generate a debugger in the way the core package and the modul
 It will return an instance of the debugger and will enable it if the environment variable is set. The common way is to create the debugger in the `configure` cycle, to just create it once and not on each reboot.
 
 ```typescript
-import { Server, boot } from "@bitbeat/core";
-import { Debugger } from "debug";
+import { Server, boot } from '@bitbeat/core';
+import { Debugger } from 'debug';
 
 export default class Test extends Server {
-  debug: Debugger | any;
+    debug: Debugger | any;
 
-  async configure(): Promise<void> {
-    this.debug = boot.generateDebugger(this.name);
-  }
+    async configure(): Promise<void> {
+        this.debug = boot.generateDebugger(this.name);
+    }
 
-  async start() {
-    this.debug(`${this.name} started.`);
-  }
+    async start() {
+        this.debug(`${this.name} started.`);
+    }
 
-  async stop() {
-    this.debug(`${this.name} stopped.`);
-  }
+    async stop() {
+        this.debug(`${this.name} stopped.`);
+    }
 }
 ```
 
@@ -766,12 +766,12 @@ Make sure if you have custom directories, to [configure them properly](#configur
 1. [Configurations](#configurations)
 2. [Utilities](#utilities)
 3. [Middlewares](#middlewares)
-   1. [ActionMiddleware](#action-middlewares)
-   2. [ConnectionMiddleware](#connection-middlewares)
-   3. [ConnectorMiddleware](#connector-middlewares)
-   4. [InitializerMiddleware](#initializer-middlewares)
-   5. [ServerMiddleware](#server-middlewares)
-   6. [TaskMiddleware](#task-middlewares)
+    1. [ActionMiddleware](#action-middlewares)
+    2. [ConnectionMiddleware](#connection-middlewares)
+    3. [ConnectorMiddleware](#connector-middlewares)
+    4. [InitializerMiddleware](#initializer-middlewares)
+    5. [ServerMiddleware](#server-middlewares)
+    6. [TaskMiddleware](#task-middlewares)
 4. [Connectors](#connectors)
 5. [Initializers](#initializers)
 6. [Actions](#actions)
@@ -795,35 +795,35 @@ In a configuration instance you are defining environment specific configs and pe
 ##### Definition
 
 ```typescript
-import { Configuration } from "@bitbeat/core";
+import { Configuration } from '@bitbeat/core';
 export default class MyConfiguration extends Configuration {
-  // default always has to be exported
-  default = {
-    // set a property to 1 as default
-    myProperty: 1,
-  };
-  local = {
-    // overwrite it only in local environment with 2
-    myProperty: 2,
-  };
+    // default always has to be exported
+    default = {
+        // set a property to 1 as default
+        myProperty: 1,
+    };
+    local = {
+        // overwrite it only in local environment with 2
+        myProperty: 2,
+    };
 
-  constructor() {
-    super();
-    this.name = "myName"; // this is optional. If not set, the class name will be used.
-  }
+    constructor() {
+        super();
+        this.name = 'myName'; // this is optional. If not set, the class name will be used.
+    }
 }
 ```
 
 ##### Usage
 
 ```typescript
-import { getInstance, Server } from "@bitbeat/core";
-import MyConfiguration from "../config/myConfig";
+import { getInstance, Server } from '@bitbeat/core';
+import MyConfiguration from '../config/myConfig';
 
 export default class MyServer extends Server {
-  async start() {
-    const config = getInstance(MyConfiguration);
-  }
+    async start() {
+        const config = getInstance(MyConfiguration);
+    }
 }
 ```
 
@@ -836,34 +836,34 @@ Utilities or Helpers are instances, which contain centralized functions, which w
 ##### Definition
 
 ```typescript
-import { Utility } from "@bitbeat/core";
-import { createHash } from "crypto";
+import { Utility } from '@bitbeat/core';
+import { createHash } from 'crypto';
 
 export default class CryptoUtility extends Utility {
-  constructor() {
-    super();
-  }
+    constructor() {
+        super();
+    }
 
-  hash(content: string): string {
-    return createHash("sha3-256").update(content).digest("hex");
-  }
+    hash(content: string): string {
+        return createHash('sha3-256').update(content).digest('hex');
+    }
 }
 ```
 
 ##### Usage
 
 ```typescript
-import { getInstance, Initializer } from "@bitbeat/core";
-import CryptoUtility from "../utils/cryptoUtility";
+import { getInstance, Initializer } from '@bitbeat/core';
+import CryptoUtility from '../utils/cryptoUtility';
 
 export default class MyInitializer extends Initializer {
-  constructor() {
-    super();
-  }
+    constructor() {
+        super();
+    }
 
-  async start(): Promise<void> {
-    console.log(getInstance(CryptoUtility)?.hash("test"));
-  }
+    async start(): Promise<void> {
+        console.log(getInstance(CryptoUtility)?.hash('test'));
+    }
 }
 ```
 
@@ -876,24 +876,24 @@ export default class MyInitializer extends Initializer {
 ###### Usage
 
 ```typescript
-import { ActionMiddleware, Action } from "@bitbeat/core";
+import { ActionMiddleware, Action } from '@bitbeat/core';
 
 export default class MyActionMiddleware extends ActionMiddleware {
-  constructor() {
-    super();
-  }
+    constructor() {
+        super();
+    }
 
-  async beforeRun(action: Action, result: any, raw: any): Promise<void> {
-    console.log("Hey I am doing something before the action");
-  }
+    async beforeRun(action: Action, result: any, raw: any): Promise<void> {
+        console.log('Hey I am doing something before the action');
+    }
 
-  async afterRun(action: Action, result: any, raw: any): Promise<void> {
-    console.log(
-      "Hey I am doing something after the action and here is the result:",
-      result
-    );
-    console.log(Date.now());
-  }
+    async afterRun(action: Action, result: any, raw: any): Promise<void> {
+        console.log(
+            'Hey I am doing something after the action and here is the result:',
+            result
+        );
+        console.log(Date.now());
+    }
 }
 ```
 
@@ -904,21 +904,21 @@ export default class MyActionMiddleware extends ActionMiddleware {
 ###### Usage
 
 ```typescript
-import { Server, ConnectionMiddleware } from "@bitbeat/core";
-import { Socket } from "net";
+import { Server, ConnectionMiddleware } from '@bitbeat/core';
+import { Socket } from 'net';
 
 export default class MyConnectionMiddleware extends ConnectionMiddleware {
-  constructor() {
-    super();
-  }
+    constructor() {
+        super();
+    }
 
-  async beforeCreate(connection: Socket, server: Server): Promise<void> {
-    // throw new Error('Sorry no trespassing.');
-  }
+    async beforeCreate(connection: Socket, server: Server): Promise<void> {
+        // throw new Error('Sorry no trespassing.');
+    }
 
-  async beforeDestroy(connection: Socket, server: Server): Promise<void> {
-    console.log(connection);
-  }
+    async beforeDestroy(connection: Socket, server: Server): Promise<void> {
+        console.log(connection);
+    }
 }
 ```
 
@@ -929,12 +929,12 @@ export default class MyConnectionMiddleware extends ConnectionMiddleware {
 ###### Usage
 
 ```typescript
-import { Server, ConnectorMiddleware } from "@bitbeat/core";
+import { Server, ConnectorMiddleware } from '@bitbeat/core';
 
 export default class MyConnectorMiddleware extends ConnectorMiddleware {
-  constructor() {
-    super();
-  }
+    constructor() {
+        super();
+    }
 }
 ```
 
@@ -945,12 +945,12 @@ export default class MyConnectorMiddleware extends ConnectorMiddleware {
 ###### Usage
 
 ```typescript
-import { InitializerMiddleware } from "@bitbeat/core";
+import { InitializerMiddleware } from '@bitbeat/core';
 
 export default class MyInitializerMiddleware extends InitializerMiddleware {
-  constructor() {
-    super();
-  }
+    constructor() {
+        super();
+    }
 }
 ```
 
@@ -961,24 +961,24 @@ export default class MyInitializerMiddleware extends InitializerMiddleware {
 ###### Usage
 
 ```typescript
-import { ServerMiddleware, Server } from "@bitbeat/core";
+import { ServerMiddleware, Server } from '@bitbeat/core';
 
 export default class MyServerMiddleware extends ServerMiddleware {
-  constructor() {
-    super();
-  }
+    constructor() {
+        super();
+    }
 
-  async beforeStart(server: Server): Promise<void> {
-    console.log("Starting server finally...");
-  }
+    async beforeStart(server: Server): Promise<void> {
+        console.log('Starting server finally...');
+    }
 
-  async afterStart(server: Server): Promise<void> {
-    console.log("Started server finally.");
-  }
+    async afterStart(server: Server): Promise<void> {
+        console.log('Started server finally.');
+    }
 
-  async beforeStop(server: Server): Promise<void> {}
+    async beforeStop(server: Server): Promise<void> {}
 
-  async afterStop(server: Server): Promise<void> {}
+    async afterStop(server: Server): Promise<void> {}
 }
 ```
 
@@ -989,36 +989,36 @@ export default class MyServerMiddleware extends ServerMiddleware {
 ###### Usage
 
 ```typescript
-import { TaskMiddleware, Task } from "@bitbeat/core";
+import { TaskMiddleware, Task } from '@bitbeat/core';
 
 export default class MyTaskMiddleware extends TaskMiddleware {
-  constructor() {
-    super();
-  }
-
-  async beforeRun(task: Task): Promise<void> {
-    try {
-      // do something
-    } catch (e) {
-      throw e;
+    constructor() {
+        super();
     }
-  }
 
-  async afterRun(task: Task): Promise<void> {
-    try {
-      // do something
-    } catch (e) {
-      throw e;
+    async beforeRun(task: Task): Promise<void> {
+        try {
+            // do something
+        } catch (e) {
+            throw e;
+        }
     }
-  }
 
-  async beforeUnload(task: Task): Promise<void> {
-    try {
-      // do something
-    } catch (e) {
-      throw e;
+    async afterRun(task: Task): Promise<void> {
+        try {
+            // do something
+        } catch (e) {
+            throw e;
+        }
     }
-  }
+
+    async beforeUnload(task: Task): Promise<void> {
+        try {
+            // do something
+        } catch (e) {
+            throw e;
+        }
+    }
 }
 ```
 
@@ -1031,39 +1031,42 @@ A connector is basically a connection to an external system, e.g. database conne
 ##### Usage
 
 ```typescript
-import { Connector, Configuration, logger } from "@bitbeat/core";
-import { Driver } from "neo4j-driver";
+import { Connector, Configuration, logger } from '@bitbeat/core';
+import { Driver } from 'neo4j-driver';
 
 export default class Neo4jConnector extends Connector {
-  runtime: Driver | undefined;
+    runtime: Driver | undefined;
 
-  constructor() {
-    super();
-    this.startPriority = 1005;
-    this.stopPriority = 1005;
-  }
+    constructor() {
+        super();
+        this.startPriority = 1005;
+        this.stopPriority = 1005;
+    }
 
-  async start() {
-    // get the neo4j configuration
-    const config = getInstance(Configuration, "Neo4j");
-    // create the driver for the database
-    this.runtime = neo4j.driver(
-      uri || "bolt://localhost:7687",
-      neo4j.auth.basic(config?.value.auth.user, config?.value.auth.password),
-      {
-        disableLosslessIntegers: true,
-      }
-    );
-    // verify the connection
-    await this.runtime.verifyConnectivity();
-    logger.info("Connected to Neo4j.");
-  }
+    async start() {
+        // get the neo4j configuration
+        const config = getInstance(Configuration, 'Neo4j');
+        // create the driver for the database
+        this.runtime = neo4j.driver(
+            uri || 'bolt://localhost:7687',
+            neo4j.auth.basic(
+                config?.value.auth.user,
+                config?.value.auth.password
+            ),
+            {
+                disableLosslessIntegers: true,
+            }
+        );
+        // verify the connection
+        await this.runtime.verifyConnectivity();
+        logger.info('Connected to Neo4j.');
+    }
 
-  async stop() {
-    // disconnect
-    await this.runtime?.close();
-    logger.info(`Closed neo4j connection.`);
-  }
+    async stop() {
+        // disconnect
+        await this.runtime?.close();
+        logger.info(`Closed neo4j connection.`);
+    }
 }
 ```
 
@@ -1076,39 +1079,39 @@ What's the difference between a [Connector](#connectors) and an Initializer? Wel
 ##### Definition
 
 ```typescript
-import { logger, Initializer } from "@bitbeat/core";
+import { logger, Initializer } from '@bitbeat/core';
 
 export default class MyInitalizer extends Initializer {
-  constructor() {
-    super();
-    this.name = "Test2";
-    this.startPriority = 1005;
-    this.stopPriority = 1000;
-  }
+    constructor() {
+        super();
+        this.name = 'Test2';
+        this.startPriority = 1005;
+        this.stopPriority = 1000;
+    }
 
-  async start() {
-    logger.info("test 2");
-  }
+    async start() {
+        logger.info('test 2');
+    }
 }
 ```
 
 ##### Usage
 
 ```typescript
-import { logger, getInstance } from "@bitbeat/core";
-import MyInitializer from "../initializers/MyInitializer";
+import { logger, getInstance } from '@bitbeat/core';
+import MyInitializer from '../initializers/MyInitializer';
 
 export default class MyServer extends Server {
-  constructor() {
-    super();
-    this.name = "Test2";
-    this.startPriority = 1005;
-    this.stopPriority = 1000;
-  }
+    constructor() {
+        super();
+        this.name = 'Test2';
+        this.startPriority = 1005;
+        this.stopPriority = 1000;
+    }
 
-  async start() {
-    console.log(getInstance(MyInitializer));
-  }
+    async start() {
+        console.log(getInstance(MyInitializer));
+    }
 }
 ```
 
@@ -1118,56 +1121,56 @@ export default class MyServer extends Server {
 
 An action is a one time running function. Now you can access them everywhere and you could use them as:
 
-- Web server route
-- Web socket server action
-- Task function which is called by a task instance
-- Connector which runs the connection action
-- even more...
+-   Web server route
+-   Web socket server action
+-   Task function which is called by a task instance
+-   Connector which runs the connection action
+-   even more...
 
 ##### Definition
 
 ```typescript
-import { Action } from "@bitbeat/core";
+import { Action } from '@bitbeat/core';
 
 export default class MyAction extends Action {
-  constructor() {
-    super();
-    this.name = "bla.test";
-    this.inputs = {};
-  }
-
-  async run(data: { params: any; result: Result; raw: any }) {
-    try {
-      // you can either extend the result or return something
-      Object.assign(data.result, data.params);
-    } catch (e) {
-      throw e;
+    constructor() {
+        super();
+        this.name = 'bla.test';
+        this.inputs = {};
     }
-  }
+
+    async run(data: { params: any; result: Result; raw: any }) {
+        try {
+            // you can either extend the result or return something
+            Object.assign(data.result, data.params);
+        } catch (e) {
+            throw e;
+        }
+    }
 }
 ```
 
 ##### Usage
 
 ```typescript
-import { getInstance, Server } from "@bitbeat/core";
-import MyAction from "../actions/MyAction";
+import { getInstance, Server } from '@bitbeat/core';
+import MyAction from '../actions/MyAction';
 
 export default class MyServer extends Server {
-  constructor() {
-    super();
-    this.name = "server";
-  }
-
-  async start() {
-    try {
-      await getInstance(MyAction)?.run({
-        ...stuff,
-      });
-    } catch (e) {
-      throw e;
+    constructor() {
+        super();
+        this.name = 'server';
     }
-  }
+
+    async start() {
+        try {
+            await getInstance(MyAction)?.run({
+                ...stuff,
+            });
+        } catch (e) {
+            throw e;
+        }
+    }
 }
 ```
 
@@ -1180,47 +1183,47 @@ A server can be anything that should be accessible from a client, app, server or
 ##### Definition
 
 ```typescript
-import { logger, Server, Status } from "@bitbeat/core";
+import { logger, Server, Status } from '@bitbeat/core';
 
 export default class TestServer extends Server {
-  runtime: any;
+    runtime: any;
 
-  constructor() {
-    super();
-    this.startPriority = 300;
-    this.stopPriority = 400;
-    this.middlewares = {
-      server: [],
-      connection: [],
-    };
-  }
+    constructor() {
+        super();
+        this.startPriority = 300;
+        this.stopPriority = 400;
+        this.middlewares = {
+            server: [],
+            connection: [],
+        };
+    }
 
-  async start() {
-    console.log("started fake server.");
-  }
+    async start() {
+        console.log('started fake server.');
+    }
 
-  async stop() {
-    console.log(`stopped fake server.`);
-  }
+    async stop() {
+        console.log(`stopped fake server.`);
+    }
 }
 ```
 
 ##### Usage
 
 ```typescript
-import { Task, getInstance } from "@bitbeat/core";
-import TestServer from "../servers/testServer.ts";
+import { Task, getInstance } from '@bitbeat/core';
+import TestServer from '../servers/testServer.ts';
 
 export default class TestTask extends Task {
-  constructor() {
-    super();
-    this.name = "bla.test";
-    this.schedule = "* * * * * *";
-  }
+    constructor() {
+        super();
+        this.name = 'bla.test';
+        this.schedule = '* * * * * *';
+    }
 
-  async run(): Promise<void> {
-    await getInstance(TestServer)?.restart();
-  }
+    async run(): Promise<void> {
+        await getInstance(TestServer)?.restart();
+    }
 }
 ```
 
@@ -1233,21 +1236,21 @@ A task is like an action that runs by the cron schedule your are defining. So yo
 ##### Definition / Usage
 
 ```typescript
-import { Task, getInstance } from "@bitbeat/core";
-import MyConnector from "../connectors/myConnector";
+import { Task, getInstance } from '@bitbeat/core';
+import MyConnector from '../connectors/myConnector';
 
 export default class TestTask extends Task {
-  constructor() {
-    super();
-    this.schedule = "* * * * *"; // run it each minute
-    this.limit = 1; // run this task only once
-    this.runInitially = true; // run it right on boot
-  }
+    constructor() {
+        super();
+        this.schedule = '* * * * *'; // run it each minute
+        this.limit = 1; // run this task only once
+        this.runInitially = true; // run it right on boot
+    }
 
-  async run(): Promise<void> {
-    const connector = getInstance(MyConnector);
-    await connector?.fetchMyData();
-  }
+    async run(): Promise<void> {
+        const connector = getInstance(MyConnector);
+        await connector?.fetchMyData();
+    }
 }
 ```
 
@@ -1281,7 +1284,7 @@ To ensure some main advantages, it is not possible to create your own class with
 <b>Right:</b>
 
 ```typescript
-import { BasicStructure } from "@bitbeat/core";
+import { BasicStructure } from '@bitbeat/core';
 export default class MyAweSomeClass extends BasicStructure {}
 ```
 
@@ -1292,31 +1295,31 @@ export default class MyAweSomeClass extends BasicStructure {}
 Let's assume you want to generate a class on runtime and register it. Well that's possible BUT don't do something like this:
 
 ```typescript
-import { Task, Server, register, getInstance } from "@bitbeat/core";
+import { Task, Server, register, getInstance } from '@bitbeat/core';
 
 export default class TestTask extends Task {
-  constructor() {
-    super();
-    this.schedule = "* * * * * *";
-    this.limit = 1;
-  }
-
-  async run() {
-    class TestServer extends Server {
-      async start() {
-        console.log("started");
-      }
-
-      async stop() {
-        console.log("stopped");
-      }
+    constructor() {
+        super();
+        this.schedule = '* * * * * *';
+        this.limit = 1;
     }
-    let server = getInstance(TestServer);
-    if (!server) {
-      server = new TestServer();
-      await register(server);
+
+    async run() {
+        class TestServer extends Server {
+            async start() {
+                console.log('started');
+            }
+
+            async stop() {
+                console.log('stopped');
+            }
+        }
+        let server = getInstance(TestServer);
+        if (!server) {
+            server = new TestServer();
+            await register(server);
+        }
     }
-  }
 }
 ```
 
@@ -1325,32 +1328,32 @@ The correct way is to create the class not in these loops. Generate it outwards 
 For example:
 
 ```typescript
-import { Task, Server, register, getInstance } from "@bitbeat/core";
+import { Task, Server, register, getInstance } from '@bitbeat/core';
 
 class TestServer extends Server {
-  async start() {
-    console.log("started");
-  }
+    async start() {
+        console.log('started');
+    }
 
-  async stop() {
-    console.log("stopped");
-  }
+    async stop() {
+        console.log('stopped');
+    }
 }
 
 export default class TestTask extends Task {
-  constructor() {
-    super();
-    this.schedule = "* * * * * *";
-    this.limit = 1;
-  }
-
-  async run() {
-    let server = getInstance(TestServer);
-    if (!server) {
-      server = new TestServer();
-      await register(server);
+    constructor() {
+        super();
+        this.schedule = '* * * * * *';
+        this.limit = 1;
     }
-  }
+
+    async run() {
+        let server = getInstance(TestServer);
+        if (!server) {
+            server = new TestServer();
+            await register(server);
+        }
+    }
 }
 ```
 
@@ -1385,11 +1388,11 @@ If you want to physically deploy the project, then there is a zip-script in the 
 
 Here is a list of things I've already planned to implement in the future:
 
-- [ ] Overthink the directory bind logic / remove the directory binding
-- [ ] Add worker threads to improve heavy load performance (complex issue due to https://github.com/nodejs/help/issues/1558 and https://github.com/nodejs/worker/issues/6)
-- [ ] Add clustering
-  - [x] Local clustering is done (needs to be tested by several testcases)
-- [x] Provide the framework to the humans
+-   [ ] Overthink the directory bind logic / remove the directory binding
+-   [ ] Add worker threads to improve heavy load performance (complex issue due to https://github.com/nodejs/help/issues/1558 and https://github.com/nodejs/worker/issues/6)
+-   [ ] Add clustering
+    -   [x] Local clustering is done (needs to be tested by several testcases)
+-   [x] Provide the framework to the humans
 
 ## Support
 
