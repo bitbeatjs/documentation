@@ -1388,6 +1388,7 @@ Here is a list of things I've already planned to implement in the future:
 - [ ] Overthink the directory bind logic / remove the directory binding
 - [ ] Add worker threads to improve heavy load performance (complex issue due to https://github.com/nodejs/help/issues/1558 and https://github.com/nodejs/worker/issues/6)
 - [ ] Add clustering
+  - [x] Local clustering is done (needs to be tested by several testcases)
 - [x] Provide the framework to the humans
 
 ## Support
