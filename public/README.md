@@ -1,4 +1,4 @@
-<img src="https://badgen.net/npm/v/@bitbeat/core" /> <img src="https://badgen.net/npm/license/@bitbeat/core" /> <img src="https://badgen.net/npm/types/@bitbeat/core" /> <img src="https://badgen.net/bundlephobia/dependency-count/@bitbeat/core" /><br>
+<img alt="@bitbeat/core version" src="https://img.shields.io/npm/v/@bitbeat/core"> <img alt="@bitbeat/core license" src="https://img.shields.io/npm/l/@bitbeat/core"> <img src="https://badgen.net/npm/types/@bitbeat/core" /> <img src="https://badgen.net/bundlephobia/dependency-count/@bitbeat/core" /> <img alt="Snyk Vulnerabilities for @bitbeat/core" src="https://img.shields.io/snyk/vulnerabilities/npm/@bitbeat/core"><br>
 <img src="https://badgen.net/bundlephobia/min/@bitbeat/core" /> <img src="https://badgen.net/bundlephobia/minzip/@bitbeat/core" /> <img src="https://badgen.net/packagephobia/publish/@bitbeat/core" /> <img src="https://badgen.net/packagephobia/install/@bitbeat/core" />
 
 ## Introduction
