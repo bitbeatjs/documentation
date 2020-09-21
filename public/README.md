@@ -3,7 +3,7 @@
 
 ## Introduction
 
-!> This documentation runs on <b>@bitbeat/core</b> and <b>@bitbeat/web</b>.
+!> This documentation runs on <b>[@bitbeat/core](https://github.com/bitbeatjs/core)</b> and <b>[@bitbeat/web](https://github.com/bitbeatjs/web)</b>.
 
 ### Now why is it called "bitbeat" and how did you get to that name?
 
