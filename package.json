@@ -20,19 +20,19 @@
   },
   "homepage": "https://github.com/bitbeatjs/documentation#readme",
   "dependencies": {
-    "@bitbeat/core": "^0.0.15",
+    "@bitbeat/core": "^0.0.16",
     "@bitbeat/web": "^0.0.14",
     "axios": "^0.20.0",
     "fastify-static": "^3.2.0"
   },
   "devDependencies": {
     "@types/debug": "^4.1.5",
-    "@types/node": "^14.10.1",
+    "@types/node": "^14.11.1",
     "@types/node-cron": "^2.0.3",
     "@types/pino": "^6.3.0",
     "@typescript-eslint/eslint-plugin": "^4.1.1",
     "@typescript-eslint/parser": "^4.1.1",
     "eslint": "^7.9.0",
-    "typescript": "^4.0.2"
+    "typescript": "^4.0.3"
   }
 }
