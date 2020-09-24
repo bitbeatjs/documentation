@@ -1,38 +1,38 @@
 {
-  "name": "documentation",
-  "version": "0.0.1",
-  "description": "The documentation repo for @bitbeat.",
-  "main": "index.js",
-  "scripts": {
-    "start": "npx @bitbeat/core start",
-    "start:docker": "docker stop bitbeat_documentation && docker build --tag bitbeat_documentation:latest --rm . --no-cache && docker run -d --rm --name bitbeat_documentation -p 3000:3000 -it bitbeat_documentation:latest",
-    "build": "npx tsc",
-    "watch": "npx tsc --watch"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/bitbeatjs/documentation.git"
-  },
-  "author": "Oliver Freudrich <info@oliverfreudrich.com> (https://oliverfreudrich.com/)",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/bitbeatjs/documentation/issues"
-  },
-  "homepage": "https://github.com/bitbeatjs/documentation#readme",
-  "dependencies": {
-    "@bitbeat/core": "^0.0.17",
-    "@bitbeat/web": "^0.0.16",
-    "axios": "^0.20.0",
-    "fastify-static": "^3.2.0"
-  },
-  "devDependencies": {
-    "@types/debug": "^4.1.5",
-    "@types/node": "^14.11.2",
-    "@types/node-cron": "^2.0.3",
-    "@types/pino": "^6.3.1",
-    "@typescript-eslint/eslint-plugin": "^4.2.0",
-    "@typescript-eslint/parser": "^4.2.0",
-    "eslint": "^7.9.0",
-    "typescript": "^4.0.3"
-  }
+    "name": "documentation",
+    "version": "0.0.1",
+    "description": "The documentation repo for @bitbeat.",
+    "main": "index.js",
+    "scripts": {
+        "start": "npx @bitbeat/core start",
+        "start:docker": "docker build --tag bitbeat_documentation:latest --rm . && docker run -d --rm --name bitbeat_documentation -p 3000:3000 -it bitbeat_documentation:latest",
+        "build": "npx tsc",
+        "watch": "npx tsc --watch"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/bitbeatjs/documentation.git"
+    },
+    "author": "Oliver Freudrich <info@oliverfreudrich.com> (https://oliverfreudrich.com/)",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/bitbeatjs/documentation/issues"
+    },
+    "homepage": "https://github.com/bitbeatjs/documentation#readme",
+    "dependencies": {
+        "@bitbeat/core": "^0.0.17",
+        "@bitbeat/web": "^0.0.16",
+        "axios": "^0.20.0",
+        "fastify-static": "^3.2.0"
+    },
+    "devDependencies": {
+        "@types/debug": "^4.1.5",
+        "@types/node": "^14.11.2",
+        "@types/node-cron": "^2.0.3",
+        "@types/pino": "^6.3.1",
+        "@typescript-eslint/eslint-plugin": "^4.2.0",
+        "@typescript-eslint/parser": "^4.2.0",
+        "eslint": "^7.9.0",
+        "typescript": "^4.0.3"
+    }
 }
