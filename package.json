@@ -21,7 +21,7 @@
   "homepage": "https://github.com/bitbeatjs/documentation#readme",
   "dependencies": {
     "@bitbeat/core": "^0.0.17",
-    "@bitbeat/web": "^0.0.14",
+    "@bitbeat/web": "^0.0.16",
     "axios": "^0.20.0",
     "fastify-static": "^3.2.0"
   },
