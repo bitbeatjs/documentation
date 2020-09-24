@@ -305,7 +305,7 @@ export default class Test extends Task {
 
     async configure() {
         this.subscribe(Events.change, (change) => {
-            console.log(change); // this will log 'prop', 'oldValue' and 'value' each second
+            console.log(change); // this will log 'prop="test"', 'oldValue=true|false' and 'value=false|true' each second
         });
     }
 
