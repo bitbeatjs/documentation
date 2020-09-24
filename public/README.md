@@ -288,6 +288,35 @@ Some examples for that can be found in the automatic tests.
 
 ---
 
+#### Property watcher
+
+There is an event called `change` for each instance, which will output you the name of the property which has changed, the old and the new value. To use it do something like:<br>
+
+```typescript
+import { Task, Events } from '@bitbeat/core';
+
+export default class Test extends Task {
+    test = false;
+
+    constructor() {
+        super();
+        this.schedule = '* * * * * *';
+    }
+
+    async configure() {
+        this.subscribe(Events.change, (change) => {
+            console.log(change); // this will log 'prop', 'oldValue' and 'value' each second
+        });
+    }
+
+    async run() {
+        this.test = !this.test;
+    }
+}
+```
+
+---
+
 ### Instance specific variables
 
 Often you want to add your own variables like e.g. connections for the server or something else. These things will be declared in the instance itself. If you want to access them, just use the `getInstance` function, fetch the instance and use the var like `getInstance(MyServer)?.connections`;
