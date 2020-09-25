@@ -40,7 +40,7 @@
 This is maybe the easiest case. You want to run a basic web server with a quick and easy environment, to create new routes and execute actions for it.<br>
 For that you will need the core and [web package](#add-existing-module-extend-core) of bitbeat.
 
-[Checkout this demo project to get started quickly.](https://github.com/bitbeatjs/examples-web)
+[Checkout this demo project to get started quickly](https://github.com/bitbeatjs/examples-web) or [checkout out the documentation repo for an advanced example](https://github.com/bitbeatjs/documentation).
 
 ##### Blackbox, with no connection available from the outside
 
