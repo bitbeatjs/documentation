@@ -1,135 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <title>@bitbeat/core</title>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-        <meta name="description" content="Description" />
-        <meta
-            name="viewport"
-            content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
-        />
-        <link
-            rel="stylesheet"
-            href="//cdnjs.cloudflare.com/ajax/libs/docsify/4.11.6/themes/vue.min.css"
-        />
-        <style>
-            .cover-main li a {
-                color: var(--theme-color, #42b983) !important;
-            }
-        </style>
-    </head>
-    <body>
-        <div id="app"></div>
-        <script>
-            window.$docsify = {
-                coverpage: true,
-                maxLevel: 5,
-                name: 'BITBEAT',
-                repo: 'bitbeatjs/core',
-                search: ['/'],
-                versions: {
-                    core: '0.0.1',
-                    redis: '0.0.1',
-                    web: '0.0.1',
-                    websocket: '0.0.1',
-                    generator: '0.0.1',
+
+<head>
+    <meta charset="UTF-8" />
+    <title>@bitbeat/core</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="description" content="Description" />
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/docsify/4.11.6/themes/vue.min.css" />
+    <style>
+        .cover-main li a {
+            color: var(--theme-color, #42b983) !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script>
+        window.$docsify = {
+            coverpage: true,
+            maxLevel: 5,
+            name: 'BITBEAT',
+            repo: 'bitbeatjs/core',
+            search: ['/'],
+            versions: {
+                core: '0.0.1',
+                redis: '0.0.1',
+                web: '0.0.1',
+                websocket: '0.0.1',
+                generator: '0.0.1',
+            },
+            copyCode: {
+                buttonText: 'Copy to clipboard',
+                errorText: 'Error',
+                successText: 'Copied',
+            },
+            share: {
+                reddit: true,
+                linkedin: true,
+                facebook: true,
+                twitter: true,
+                whatsapp: true,
+                telegram: true,
+            },
+            plugins: [
+                (hook, vm) => {
+                    hook.init(async () => {
+                        const {
+                            data
+                        } = await axios.post(
+                            '/api/v1/version', {
+                                name: '@bitbeat/core',
+                            }
+                        );
+                        window.$docsify.versions.core = data.version;
+                        document.querySelector('#version-core').innerText =
+                            window.$docsify.versions.core;
+                    });
                 },
-                copyCode: {
-                    buttonText: 'Copy to clipboard',
-                    errorText: 'Error',
-                    successText: 'Copied',
+                (hook, vm) => {
+                    hook.init(async () => {
+                        const {
+                            data
+                        } = await axios.post(
+                            '/api/v1/version', {
+                                name: '@bitbeat/redis',
+                            }
+                        );
+                        window.$docsify.versions.redis = data.version;
+                        document.querySelector(
+                            '#version-redis'
+                        ).innerText = `v${window.$docsify.versions.redis}`;
+                    });
                 },
-                share: {
-                    reddit: true,
-                    linkedin: true,
-                    facebook: true,
-                    twitter: true,
-                    whatsapp: true,
-                    telegram: true,
+                (hook, vm) => {
+                    hook.init(async () => {
+                        const {
+                            data
+                        } = await axios.post(
+                            '/api/v1/version', {
+                                name: 'generator-bitbeat',
+                            }
+                        );
+                        window.$docsify.versions.generator = data.version;
+                        document.querySelector(
+                            '#version-generator'
+                        ).innerText = `v${window.$docsify.versions.generator}`;
+                    });
                 },
-                plugins: [
-                    (hook, vm) => {
-                        hook.init(async () => {
-                            const { data } = await axios.post(
-                                '/api/v1/version',
-                                {
-                                    name: '@bitbeat/core',
-                                }
-                            );
-                            window.$docsify.versions.core = data.version;
-                            document.querySelector('#version-core').innerText =
-                                window.$docsify.versions.core;
-                        });
-                    },
-                    (hook, vm) => {
-                        hook.init(async () => {
-                            const { data } = await axios.post(
-                                '/api/v1/version',
-                                {
-                                    name: '@bitbeat/redis',
-                                }
-                            );
-                            window.$docsify.versions.redis = data.version;
-                            document.querySelector(
-                                '#version-redis'
-                            ).innerText = `v${window.$docsify.versions.redis}`;
-                        });
-                    },
-                    (hook, vm) => {
-                        hook.init(async () => {
-                            const { data } = await axios.post(
-                                '/api/v1/version',
-                                {
-                                    name: 'generator-bitbeat',
-                                }
-                            );
-                            window.$docsify.versions.generator = data.version;
-                            document.querySelector(
-                                '#version-generator'
-                            ).innerText = `v${window.$docsify.versions.generator}`;
-                        });
-                    },
-                    (hook, vm) => {
-                        hook.init(async () => {
-                            const { data } = await axios.post(
-                                '/api/v1/version',
-                                {
-                                    name: '@bitbeat/web',
-                                }
-                            );
-                            window.$docsify.versions.web = data.version;
-                            document.querySelector(
-                                '#version-web'
-                            ).innerText = `v${window.$docsify.versions.web}`;
-                        });
-                    },
-                    (hook, vm) => {
-                        hook.init(async () => {
-                            const { data } = await axios.post(
-                                '/api/v1/version',
-                                {
-                                    name: '@bitbeat/websocket',
-                                }
-                            );
-                            window.$docsify.versions.websocket = data.version;
-                            document.querySelector(
-                                '#version-websocket'
-                            ).innerText = `v${window.$docsify.versions.websocket}`;
-                        });
-                    },
-                ],
-            };
-        </script>
-        <script
-            src="https://cdnjs.cloudflare.com/ajax/libs/docsify/4.11.6/docsify.min.js"
-            integrity="sha512-smYOhvJEIuxfhYAaDeFT2zmTKXVTMckzt/s6Sklilg1YWTc+NTVZQ1JHtEmv/BCQOprUNXSrVKLRuxR56B7gyw=="
-            crossorigin="anonymous"
-        ></script>
-        <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-typescript.min.js"></script>
-        <script src="//cdnjs.cloudflare.com/ajax/libs/docsify/4.11.6/plugins/search.min.js"></script>
-        <script src="//cdn.jsdelivr.net/npm/docsify-copy-code@2.1.0/dist/docsify-copy-code.min.js"></script>
-        <script src="//cdn.jsdelivr.net/npm/docsify-share@0.1.3/build/index.min.js"></script>
-        <script src="//cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"></script>
-    </body>
+                (hook, vm) => {
+                    hook.init(async () => {
+                        const {
+                            data
+                        } = await axios.post(
+                            '/api/v1/version', {
+                                name: '@bitbeat/web',
+                            }
+                        );
+                        window.$docsify.versions.web = data.version;
+                        document.querySelector(
+                            '#version-web'
+                        ).innerText = `v${window.$docsify.versions.web}`;
+                    });
+                },
+                (hook, vm) => {
+                    hook.init(async () => {
+                        const {
+                            data
+                        } = await axios.post(
+                            '/api/v1/version', {
+                                name: '@bitbeat/websocket',
+                            }
+                        );
+                        window.$docsify.versions.websocket = data.version;
+                        document.querySelector(
+                            '#version-websocket'
+                        ).innerText = `v${window.$docsify.versions.websocket}`;
+                    });
+                },
+            ],
+        };
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/docsify/4.11.6/docsify.min.js"
+        integrity="sha512-smYOhvJEIuxfhYAaDeFT2zmTKXVTMckzt/s6Sklilg1YWTc+NTVZQ1JHtEmv/BCQOprUNXSrVKLRuxR56B7gyw=="
+        crossorigin="anonymous"></script>
+    <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-typescript.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/docsify/4.11.6/plugins/search.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/docsify-copy-code@2.1.0/dist/docsify-copy-code.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/docsify-share@0.1.3/build/index.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"></script>
+</body>
+
 </html>
