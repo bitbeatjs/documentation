@@ -116,7 +116,7 @@ and then add the config param when starting `node ./node_modules/@bitbeat/core/b
 ### Add existing module / extend core
 
 Of course the core package of bitbeat is a bit plain, which is intended but may not always useful, e.g. if you want to have a web server or websocket server or both.
-It's pretty easy to add one of these modules to the core or even create your own and add it. For this you will need to use the [register/registerBulk](#register-registerbulk).
+It's pretty easy to add one of these modules to the core or even create your own and add it. For this you will need to use the [register/registerBulk](#register-registerbulk).<br><br>
 Check out some official modules available (more modules will follow):
 
 -   [@bitbeat/web](https://github.com/bitbeatjs/web) (<span id="version-web">not released</span>) (web server module based on [fastify](https://www.fastify.io/))
@@ -124,7 +124,7 @@ Check out some official modules available (more modules will follow):
 -   [@bitbeat/redis](https://github.com/bitbeatjs/redis) (<span id="version-redis">not released</span>) (redis connector module based on [ioredis](https://github.com/luin/ioredis))
 -   [@bitbeat/python](https://github.com/bitbeatjs/python) (<span id="version-python">not released</span>) (python module)
 -   [@bitbeat/evan-network](https://github.com/bitbeatjs/evan-network) (<span id="version-evan-network">not released</span>) (blockchain module based on the [evan.network](https://evan.network/))
--   [@bitbeat/cluster](https://github.com/bitbeatjs/cluster) (<span id="version-cluster">not released</span>) (clustering module)
+-   [@bitbeat/cluster](https://github.com/bitbeatjs/cluster) (<span id="version-cluster">not released</span>) (clustering module for multiple servers)
 
 Community modules:
 
@@ -133,10 +133,12 @@ Community modules:
 Now initially the bitbeat is searching for a `boot.js`, which will be run before the whole core is getting initialized. To add a web server package to the core, you need to do something like this:
 
 ```typescript
-import { registerBulk, getInstance } from '@bitbeat/core';
+import { registerBulk } from '@bitbeat/core';
 import { WebServer, WebServerConfig } from '@bitbeat/web';
 
 export default async () => {
+    // it does not matter if you use new Set([WebServerConfig, WebServer]) or new Set([WebServer, WebServerConfig]).
+    // Configuration files will always be loaded first + the priorities are the important sorter.
     await registerBulk(new Set([WebServerConfig, WebServer]));
 };
 ```
