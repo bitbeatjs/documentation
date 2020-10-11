@@ -14,13 +14,12 @@ export default async (): Promise<void> => {
     (webConfig.default as any).static = {
         root: join(__dirname, 'public'),
     };
-    (webServer as any).postRegister = (
-        runtime: any,
-        config: WebServerConfig | undefined
-    ): void => {
-        runtime.register(fastifyStatic, config?.value.static);
-        webServer.debug(`Registered fastify static.`);
-    };
+    (webServer as any).postRegister.add(
+        (runtime: any, config: WebServerConfig | undefined): void => {
+            runtime.register(fastifyStatic, config?.value.static);
+            webServer.debug(`Registered fastify static.`);
+        }
+    );
 
     await registerBulk(new Set([webConfig, webServer, Documentation]));
 };
