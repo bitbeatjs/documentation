@@ -3,9 +3,11 @@
 
 ## Introduction
 
-!> This documentation runs on <b>[@bitbeat/core](https://github.com/bitbeatjs/core)</b> and <b>[@bitbeat/web](https://github.com/bitbeatjs/web)</b>.
+?> This documentation runs on <b>[@bitbeat/core](https://github.com/bitbeatjs/core)</b> and <b>[@bitbeat/web](https://github.com/bitbeatjs/web)</b>.
 
-### Now why is it called "bitbeat" and how did you get to that name?
+!> I've sucessfully tested my framework in production. Nevertheless without any other success stories, I can't fully recommend to use it in production yet. There could be big changes as long as there is no major release.
+
+### Now why is it called "bitbeat" and how did I get to that name?
 
 > Well I thought the name bitbeat was quite short and easy to remember but in general for me it's based on both words "bit" and "beat".<br>
 > I thought of the word "beat" as like a rhythm or heartbeat. Rhythm like the rhythm of a symphony of bits, which will work in harmony together and make the whole program run like a charm. Heartbeat because it should be like a growing organism, by making it modular and allow attaching your own modules however you want them and publish them to be reused by others. The word "bit" is of course one of the most basic units of a program but also it connects the word "beat" with the IT part.
@@ -217,7 +219,7 @@ When using this, pretty print will be turned off to improve to performance of st
 <br>
 `LOG_PHYSICAL=1`
 
-!> Be aware writing of physical log files may affect the performance. For that reason, it is <b>disabled by default</b>.
+!> Be aware: writing of physical log files may affect the performance and could resolve in loosing some log infos on crash. For that reason, it is <b>disabled by default</b>. <br>You can add any plugin to the `store.logger` e.g. in the `boot.ts`. Take a look at [the pino environment](https://github.com/pinojs/pino/blob/master/docs/ecosystem.md).
 
 ---
 
