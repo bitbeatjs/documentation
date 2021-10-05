@@ -23,7 +23,7 @@
         "@bitbeat/core": "^0.0.21",
         "@bitbeat/web": "^0.0.21",
         "axios": "^0.21.0",
-        "fastify-static": "^3.3.0"
+        "fastify-static": "^4.2.4"
     },
     "devDependencies": {
         "@types/debug": "^4.1.5",
